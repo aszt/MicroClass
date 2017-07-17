@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/show.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<script type="text/javascript" src="../js/global.js"></script>
+		<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">课程详情</h1>
+		</header>
+		<div class="zhuti">
+			<div class="top" id="top">
+
+			</div>
+			<div class="mui-content">
+				<div style="padding: 10px 10px;">
+					<div id="segmentedControl" class="mui-segmented-control">
+						<a class="mui-control-item mui-active" href="#item1">
+							课程简介
+						</a>
+						<a class="mui-control-item" href="#item2">
+							课时列表
+						</a>
+					</div>
+				</div>
+				<div>
+					<div id="item1" class="mui-control-content mui-active">
+						<div class="mui-scroll" id="introduction">
+
+						</div>
+					</div>
+					<div id="item2" class="mui-control-content">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var state = app.getState();
+		var userId = state.userId;
+		var userInfo;
+		var courseInfo;
+		var classPeriodList;
+		var courseId;
+		(function($, doc) {
+			mui.init({
+				preloadPages: [{
+					id: 'playVideo',
+					url: 'video.html'
+				}]
+			});
+			//自定义事件，当登陆成功后
+			window.addEventListener('refState', function(event) {
+				state = app.getState()
+				userId = state.userId
+			});
+			window.addEventListener('courseDetail', function(event) {
+				courseId = event.detail.courseId
+				mui.ajax(request_url + 'courseInfo/getCourseInfo_app', {
+					data: {
+						courseId: courseId,
+						userId: userId
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(data) {
+						userInfo = data.userInfo;
+						courseInfo = data.courseInfo;
+						classPeriodList = data.classPeriodList;
+						var listSize = data.listSize
+						var collect = data.collect
+						var content = document.getElementById("top");
+						if(collect == 0) {
+							content.innerHTML = '<img src="' + request_url + courseInfo.image + '"/><div>' +
+								'<h1 id="courseName" >' + courseInfo.name + '</h1>' +
+								'<a class="shoucang iconfont icon-shoucang" id="' + courseInfo.id + '"></a>' +
+								'<p><b>主讲师：</b><i>' + userInfo.name + '</i></p>' +
+								'<p><b class="xuex">学校：</b><i class="ltxt">' + userInfo.school + '</i></p></div>';
+						} else {
+							content.innerHTML = '<img src="' + request_url + courseInfo.image + '"/><div>' +
+								'<h1 id="courseName" >' + courseInfo.name + '</h1>' +
+								'<a class="shoucang iconfont yishoucang " id="' + courseInfo.id + '"></a>' +
+								'<p><b>主讲师：</b><i>' + userInfo.name + '</i></p>' +
+								'<p><b class="xuex">学校：</b><i class="ltxt">' + userInfo.school + '</i></p></div>';
+						}
+						var introduction = document.getElementById("introduction");
+						introduction.innerText = courseInfo.introduction
+						var ckx = document.getElementById("item2");
+						ckx.innerHTML = "";
+						ckx.appendChild(createClassPeriodList(classPeriodList, listSize))
+
+					},
+					error: function(xhr, type, errorThrown) {}
+				});
+
+			});
+			//构建课程列表
+			function createClassPeriodList(classPeriodList, listSize) {
+				var fragment = document.createDocumentFragment();
+				var span;
+				for(var i = 0; i < listSize; i++) {
+					var classPeriod = classPeriodList[i];
+					span = document.createElement('ul');
+					span.setAttribute('class', 'mui-table-view')
+					span.innerHTML = '<li class="mui-table-view-cell" id="' + classPeriod.id + '">' + classPeriod.name + '</li>'
+					fragment.appendChild(span)
+				}
+				return fragment;
+			};
+
+			//收藏按钮
+			mui(".top").on('tap', '.shoucang', function() {
+				if(userId == null) {
+					var btnArray = ['取消', '确定'];
+					mui.confirm('您还没有登陆，是否去登陆？', '提示', btnArray, function(e) {
+						if(e.index == 1) {
+							mui.openWindow({
+								url: 'login.html',
+								id: 'login',
+								show: {
+									aniShow: 'pop-in'
+								},
+								waiting: {
+									autoShow: false,
+								}
+							});
+						} else {}
+					})
+				} else {
+					mui.ajax(request_url + 'courseInfo/doCollect_app', {
+						data: {
+							courseId: courseId,
+							userId: userId
+						},
+						dataType: 'json', //服务器返回json格式数据
+						type: 'post', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						success: function(data) {
+							var state = data.state
+							if(state == 0) {
+								document.getElementById(courseId).setAttribute("class", "shoucang iconfont icon-shoucang");
+							} else {
+								document.getElementById(courseId).setAttribute("class", "shoucang iconfont yishoucang");
+							}
+							var collect = plus.webview.getWebviewById('pages/collect.html');
+							collect.reload();
+						},
+						error: function(xhr, type, errorThrown) {}
+					});
+
+				}
+			});
+
+			/*
+			 *跳转到播放页 
+			 * */
+			var playVideo = null;
+			//添加列表项的点击事件
+			mui(".mui-control-content").on('tap', '.mui-table-view-cell', function() {
+				//获取被点击列表的id
+				var id = this.getAttribute("id");
+				//获得详情页面
+				if(!playVideo) {
+					playVideo = plus.webview.getWebviewById('playVideo');
+				}
+				//触发详情页面的courseDetail事件
+				mui.fire(playVideo, 'doPlay', {
+					classPeriodId: id
+				});
+				//打开详情页面          
+				mui.openWindow({
+					id: 'playVideo'
+				});
+			});
+
+		}(mui, document));
+	</script>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/register.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">注册</h1>
+		</header>
+		<div class="mui-content">
+			<ul>
+				<li><img src="../images/name-2.png"><span>用户名</span>
+					<input type="text" id="name" />
+				</li>
+				
+				<li><img src="../images/email.png"><span>邮箱</span>
+					<input type="email" id="email" />
+				</li>
+				
+				<li><img src="../images/mima.png"><span>密码</span>
+					<input type="password" id="password" />
+				</li>
+				<li><img src="../images/qrmima.png"><span>确认密码</span>
+					<input type="password" id="comfirm" />
+				</li>
+			</ul>
+			<button id="sign" class="register mui-btn mui-btn-primary">注 册</button>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/global.js"></script>
+		<script type="text/javascript" src="../js/user.js"></script>
+		<script src="../js/app.js"></script>
+		<script>
+				(function($, doc) {
+					$.init();
+					$.plusReady(function() {
+						var SignButton = doc.getElementById("sign");
+						var NameBox = doc.getElementById("name");
+						var EmailBox = doc.getElementById("email");
+						var PasswordBox = doc.getElementById("password");
+						SignButton.addEventListener('tap', function(event) {
+							var userInfo = {
+								userName: NameBox.value,
+								email: EmailBox.value,
+								password: PasswordBox.value
+							}
+							var ConfirmBox = doc.getElementById("comfirm").value;
+							if (ConfirmBox != userInfo.password) {
+								plus.nativeUI.toast('密码两次输入不一致');
+								return;
+							}
+							app.register(userInfo, function(err) {
+								if (err) {
+									plus.nativeUI.toast(err);
+									return;
+								}
+								plus.nativeUI.toast("注册成功,请到邮箱激活");
+								mui.back();
+							});
+						});
+					});
+				}(mui, document));
+		</script>
+	</body>
+</html>

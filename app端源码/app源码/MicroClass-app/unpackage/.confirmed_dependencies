@@ -1,0 +1,214 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "js/index.js",
+      "pages/home.html",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "fonts/iconfontt.ttf",
+      "fonts/iconfont2.ttf"
+    ],
+    "refer": [
+      "pages/home.html",
+      "pages/share-class.html",
+      "pages/collect.html",
+      "pages/open-class.html",
+      "pages/setting.html"
+    ]
+  },
+  "pages/home.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/cbd.jpg",
+      "images/yuantiao.jpg",
+      "images/muwu.jpg",
+      "images/shuijiao.jpg",
+      "pages/show.html",
+      "js/index.js",
+      "js/app.js",
+      "js/global.js",
+      "js/jquery-3.1.1.min.js"
+    ],
+    "refer": [
+      "pages/show.html",
+      "pages/search.html",
+      "pages/video.html"
+    ]
+  },
+  "pages/open-class.html": {
+    "resources": [
+      "images/60x60.gif",
+      "images/cbd.jpg",
+      "images/yuantiao.jpg",
+      "images/muwu.jpg",
+      "js/mui.min.js",
+      "images/shuijiao.jpg",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/app.js",
+      "js/jquery-3.1.1.min.js",
+      "js/global.js"
+    ],
+    "refer": [
+      "pages/show.html",
+      "pages/search.html"
+    ]
+  },
+  "pages/setting.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "pages/css/feedback.css",
+      "pages/js/mui.view.js",
+      "pages/js/feedback.js",
+      "images/touxiang.png",
+      "pages/login.html",
+      "js/app.js",
+      "js/jquery-3.1.1.min.js",
+      "js/global.js"
+    ],
+    "refer": [
+      "pages/login.html"
+    ]
+  },
+  "pages/login.html": {
+    "resources": [
+      "js/global.js",
+      "js/mui.enterfocus.js",
+      "css/login.css",
+      "pages/js/mui.enterfocus.js",
+      "pages/js/app.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "pages/register.html",
+      "images/logo_big.png",
+      "fonts/mui.ttf",
+      "images/logo.png",
+      "pages/forget_password.html",
+      "js/app.js",
+      "js/index.js",
+      "js/jquery-3.1.1.min.js"
+    ],
+    "refer": [
+      "pages/register.html",
+      "pages/forget_password.html",
+      "index.html",
+      "pages/home.html"
+    ]
+  },
+  "pages/register.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/register.css",
+      "pages/login.html",
+      "images/qrmima.png",
+      "images/name-2.png",
+      "images/mima.png",
+      "images/email.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/global.js",
+      "js/app.js"
+    ],
+    "refer": [
+      "pages/login.html"
+    ]
+  },
+  "pages/forget_password.html": {
+    "resources": [
+      "images/qrmima.png",
+      "images/name-2.png",
+      "images/mima.png",
+      "css/register.css",
+      "images/email.png",
+      "pages/login.html"
+    ],
+    "refer": [
+      "pages/login.html"
+    ]
+  },
+  "pages/show.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "images/yuantiao.jpg",
+      "css/show.css",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "js/show.js",
+      "js/app.js",
+      "js/jquery-3.1.1.min.js",
+      "js/global.js",
+      "fonts/iconfontt.ttf",
+      "fonts/iconfont2.ttf"
+    ],
+    "refer": [
+      "pages/video.html",
+      "pages/login.html"
+    ]
+  },
+  "pages/collect.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/app.js",
+      "js/jquery-3.1.1.min.js",
+      "js/global.js"
+    ],
+    "refer": [
+      "pages/login.html"
+    ]
+  },
+  "pages/share-class.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/app.js",
+      "js/jquery-3.1.1.min.js",
+      "js/global.js"
+    ]
+  },
+  "pages/search.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/cbd.jpg",
+      "images/yuantiao.jpg",
+      "images/muwu.jpg",
+      "images/shuijiao.jpg",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "fonts/iconfontt.ttf",
+      "js/app.js",
+      "js/jquery-3.1.1.min.js",
+      "js/global.js",
+      "fonts/iconfont2.ttf"
+    ],
+    "refer": [
+      "pages/show.html"
+    ]
+  },
+  "pages/video.html": {
+    "resources": [
+      "js/jquery-3.1.1.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "js/mui.js",
+      "js/global.js",
+      "js/ckplayer/ckplayer.js",
+      "js/zy.media.min.js",
+      "images/1477922454971.jpg"
+    ]
+  }
+}

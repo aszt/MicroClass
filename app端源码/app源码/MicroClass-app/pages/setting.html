@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="../js/global.js"></script>
+		<style type="text/css">
+			.hide {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" href="#" id="toLogin">
+						<img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/touxiang.png">
+						<div class="mui-media-body">
+							<span style="color: #007AFF " id="userName">登陆</span>
+							<p class='mui-ellipsis' style="color: #007AFF;" id="email">登陆/注册</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 25px;">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						新消息通知
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						隐私
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						通用
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 25px;">
+				<li class="mui-table-view-cell">
+					<a id="about" class="mui-navigate-right">
+						关于
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view hide" style="margin-top: 25px;" id="out">
+				<li class="mui-table-view-cell">
+					<a style="text-align: center;color: #FF3B30;" id="logout">
+						退出登录
+					</a>
+				</li>
+			</ul>
+			<span id="show" class="replace" style="display: ;"></span>
+		</div>
+		</style>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+	<script>
+		var state = app.getState();
+		if(state.userId != null) {
+			$(".mui-navigate-right").attr("id", "show")
+			$(".replace").attr('id', 'toLogin')
+			$("#userName").text(state.userName)
+			$("#email").text(state.email)
+			$("#out").removeClass("hide")
+			$("#head-img").attr("src", request_url + state.image)
+		}
+
+		var toLogin = document.getElementById("toLogin");
+		toLogin.addEventListener("tap", function(event) {
+			setTimeout(function() {
+				mui.openWindow({
+					url: 'login.html',
+					id: 'login',
+					show: {
+						aniShow: 'pop-in'
+					},
+					waiting: {
+						autoShow: false,
+					}
+				});
+			}, 0);
+		});
+
+		document.getElementById('logout').addEventListener('tap', function() {
+			app.setState({});
+			var collect = plus.webview.getWebviewById('pages/collect.html');
+			collect.reload();
+			var show = plus.webview.getWebviewById('showCourse');
+			show.reload();
+			var setting = plus.webview.getWebviewById('pages/setting.html');
+			setting.reload();
+
+		}, false);
+	</script>
+
+</html>

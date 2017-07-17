@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>登陆</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/login.css" />
+		<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">登录</h1>
+		</header>
+		<div class="mui-content">
+			<img src="../images/logo.png">
+			<form id="login-form" style="margin-bottom: 20px;">
+				<div><span>账户:</span><input id='userName' type="text" placeholder="请输入账号"></div>
+				<div class="n"><span>密码:</span><input id='password' type="password" placeholder="请输入密码"></div>
+			</form>
+			<div style="margin-bottom: 20px;">
+				<span style="margin-left: 20px;">记住密码</span>
+				<div id="autoLogin" class="mui-switch" style="float: right;margin-right: 20px;">
+					<div class="mui-switch-handle"></div>
+				</div>
+			</div>
+			<div class="mui-content-padded">
+				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+				<div class="link-area">
+					<a href="register.html">注册账号</a> <span class="spliter">|</span>
+					<a href="forget_password.html" id='forget_password'>忘记密码</a>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/global.js"></script>
+		<script src="../js/mui.enterfocus.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+
+		<script>
+			var settings = app.getSettings();
+			var loginConf = app.getLoginConf();
+			if(settings.autoLogin && loginConf.account) {
+				$("#userName").val(loginConf.account);
+				$("#password").val(loginConf.password);
+			} else {
+				app.setLoginConf({});
+			}
+			(function($, doc) {
+				$.init();
+				$.plusReady(function() {
+					setTimeout(function() {
+						//关闭 splash
+						plus.navigator.closeSplashscreen();
+					}, 1500);
+					var loginButton = doc.getElementById('login');
+					var accountBox = doc.getElementById('userName');
+					var passwordBox = doc.getElementById('password');
+					var autoLoginButton = doc.getElementById("autoLogin");
+					loginButton.addEventListener('tap', function(event) {
+						var loginInfo = {
+							userName: accountBox.value,
+							password: passwordBox.value
+						};
+						app.login(loginInfo, function(err) {
+							if(err) {
+								plus.nativeUI.toast(err);
+								return;
+							}
+							var setting = plus.webview.getWebviewById('pages/setting.html');
+							setting.reload();
+							var collect = plus.webview.getWebviewById('pages/collect.html');
+							collect.reload();
+
+							var show = plus.webview.getWebviewById('showCourse');
+							mui.fire(show, 'refState');
+							mui.back();
+						});
+					});
+					$.enterfocus('#login-form input', function() {
+						$.trigger(loginButton, 'tap');
+					});
+					autoLoginButton.classList[settings.autoLogin ? 'add' : 'remove']('mui-active')
+					autoLoginButton.addEventListener('toggle', function(event) {
+						setTimeout(function() {
+							var isActive = event.detail.isActive;
+							settings.autoLogin = isActive;
+							app.setSettings(settings);
+						}, 50);
+					}, false);
+
+				});
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

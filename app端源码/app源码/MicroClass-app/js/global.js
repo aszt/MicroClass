@@ -1,0 +1,1 @@
+var request_url = 'http://www.fristtcy.cn/';

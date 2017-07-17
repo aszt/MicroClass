@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script type="text/javascript" src="../js/global.js"></script>
+		<script src="../js/jquery-3.1.1.min.js"></script>
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="mui-input-row mui-search mui-plus-visible" style="margin: auto; margin-top: 15px; width: 98%; ">
+					<input id="search" type="search" class="mui-input-speech mui-input-clear" placeholder="搜索">
+				</div>
+				<ul class="mui-table-view mui-grid-view" id="content">
+				</ul>
+			</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+	<script>
+		var pageNo = 1;
+		var totalPage=1;
+		(function($, doc) {
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				},
+				
+				preloadPages: [
+				//初始化预加载详情页面
+				{
+					id: 'showCourse',
+					url: 'show.html'
+				}, {
+					id: 'searchCourse',
+					url: 'search.html'
+				}]
+			});
+
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					var home = plus.webview.getWebviewById('pages/home.html');
+					home.reload();
+					pageNo = 2;
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1000);
+			};
+
+			/*
+			 * 搜索
+			 * */
+			document.getElementById("search").addEventListener('keyup', function(event) {
+				var e = event || window.event || arguments.callee.caller.arguments[0];
+				if(e && e.keyCode == 13) {
+					var keyword = document.getElementById("search").value;
+					if(keyword != '') {
+						//触发搜索页面的searchCourse事件
+						var searchCourse = plus.webview.getWebviewById('searchCourse');
+						mui.fire(searchCourse, 'searchPage', {
+							keyword: keyword,
+							page: ""
+						});
+						//打开搜索页面          
+						mui.openWindow({
+							id: 'searchCourse'
+						});
+						document.getElementById("search").value = "";
+					} else {
+						plus.nativeUI.toast('搜索关键字不能为空')
+					}
+				}
+
+			});
+
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh( pageNo>totalPage); //参数为true代表没有更多数据了。
+					mui.ajax(request_url + 'courseInfo/getCourseInfoList_app', {
+						data: {
+							seach: "",
+							pageNo: pageNo,
+							page: "",
+							userId: ""
+						},
+						dataType: 'json', //服务器返回json格式数据
+						type: 'post', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						success: function(data) {
+							var courseInfoList = data.courseInfoList;
+							totalPage = data.totalPage;
+							var listLenth=data.listLenth;
+							pageNo++
+							var content = document.getElementById("content");
+							content.appendChild(createCourseList(courseInfoList,listLenth))
+						},
+						error: function(xhr, type, errorThrown) {}
+					});
+
+				}, 1000);
+			};
+
+			function createCourseList(courseInfoList,listLenth) {
+				var fragment = document.createDocumentFragment();
+				var span;
+				for(var i = 0; i < listLenth; i++) {
+					var courseInfo = courseInfoList[i];
+					span = document.createElement('span');
+					span.innerHTML = '<li class="mui-table-view-cell mui-media mui-col-xs-6" id="' + courseInfo.id + '">' +
+						'<a href="#">' +
+						'<img class="mui-media-object" src="' + request_url + courseInfo.image + '"style="display: block;width: 100%;height: 125px;">' +
+						'<div class="mui-media-body">' + courseInfo.name + '</div>' +
+						'</a></li>';
+					fragment.appendChild(span)
+				}
+				return fragment;
+			};
+
+			/*
+			 *页面加载完成加载数据 
+			 * */
+			if(mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						pullupRefresh();
+					}, 10);
+				});
+			} else {
+				mui.ready(function() {
+					pullupRefresh();
+				});
+			}
+			/*
+			 *跳转到课程详情页 
+			 * */
+			var showCourse = null;
+			//添加列表项的点击事件
+			mui(".mui-table-view").on('tap', '.mui-table-view-cell', function() {
+				//获取被点击列表的id
+				var id = this.getAttribute("id");
+				//获得详情页面
+				if(!showCourse) {
+					showCourse = plus.webview.getWebviewById('showCourse');
+				}
+				//触发详情页面的courseDetail事件
+				mui.fire(showCourse, 'courseDetail', {
+					courseId: id
+				});
+				//打开详情页面          
+				mui.openWindow({
+					id: 'showCourse'
+				});
+			});
+		}(mui, document));
+	</script>
+
+</html>
