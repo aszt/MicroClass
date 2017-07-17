@@ -1,0 +1,350 @@
+*{
+    margin:0;
+    padding:0;
+}
+.clear{ clear:both}
+header a:link{ color: #999; text-decoration: none;}
+header a:visited{ color: #999; text-decoration: none;}
+header a:hover{ color: #2E9057; text-decoration: none;}
+.top_nav {
+    width: 100%;
+    height: 38px;
+    background: #EBEBEB;
+    border-bottom: 1px solid #ddd;
+}
+.top_container{
+    width: 1180px;
+    margin: 0 auto;
+}
+header .top_nav .top_container ul li{
+    list-style: none;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+    padding:  0 6px;
+    font-family: "宋体";
+}
+header .top_nav .top_right{
+    float: right;
+    margin-right: -6px;
+}
+header .top_nav .top_right p{
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+    color: #666;
+    font-family: "宋体";
+    float: left;
+}
+header .top_nav .top_right ul{
+    float: right;
+}
+header .top_nav .top_right ul li{
+    border-left: 1px solid #d9d9d9;
+    height: 15px;
+    line-height: 15px;
+    margin-top: 10px;
+}
+header .top_nav .top_right ul a:link{ color: #666; text-decoration: none;}
+header .top_nav .top_right ul a:visited{ color: #666; text-decoration: none;}
+header .top_nav .top_right ul a:hover{ color: #2E9057; text-decoration: none;}
+header .top_nav .top_right ul .hides_left{
+    border-left: 1px solid #EBEBEB;
+}
+/*导航条样式止*/
+header .titles{
+    width: 100%;
+    background-color: #2CA368;
+}
+header .title{
+    width: 1100px;
+    height: 40px;
+    margin: 0 auto;
+    line-height: 40px;
+}
+.title img{
+    float: left;
+}
+header .title p{
+    float: left;
+    color: white;
+}
+/*绿色导航条止*/
+.nrs{
+    width: 100%;
+    /*height: 600px;*/
+    background-color: #EFEFEF;
+    /*border: 1px solid #2CA368;*/
+}
+.brr{
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.nr{
+    width: 1010px;
+    height: 500px;
+    border: 1px solid #AEAEAE;
+    margin: 20px auto;
+}
+.vd_lefts{
+    width: 700px;
+    height: 500px;
+    /*border: 1px solid #AEAEAE;*/
+    /*background-color: #EAEAEA;*/
+    float: left;
+}
+.vd_left{
+    /*视频播放页面的宽高*/
+    margin: 18px;
+    width: 660px;
+    height: 460px;
+    border: 1px solid #AEAEAE;
+    /*background-color: white;*/
+}
+.js_right{
+    float: left;
+    width: 300px;
+    height: 500px;
+}
+.right_top{
+    /*border-bottom: 1px solid #AEAEAE;*/
+    width: 290px;
+}
+.right_bottom{
+    width: 290px;
+}
+.t_lf{
+    float: left;
+}
+.n_rg{
+    padding-top: 20px;
+    margin-left: 10px;
+    font-size: 14px;
+    float: left;
+    color: #2CA368;
+}
+.grjj{
+    font-size: 12px;
+    line-height: 20px;
+    margin-left: 10px;
+    padding-bottom: 16px;
+}
+/*播放页面止*/
+.ks{
+    width: 1010px;
+    margin: 0 auto;
+    height: 260px;
+    border: 1px solid #AEAEAE;
+    overflow: hidden;
+}
+.sc{
+    font-size: 13px;
+    width: 180px;
+    background-color: #2CA368;
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 30px;
+    color: #FFFFFF;
+}
+.next{
+    /*border: 1px solid #2a6496;*/
+    width: 1000px;
+    margin: 0 auto;
+    /*border-bottom: 1px solid #2CA368;*/
+    padding-bottom: 20px;
+}
+.next .t1{
+    width: 140px;
+    float: left;
+    margin-left: 18px;
+    text-align: center;
+    margin-right: 1px;
+}
+.next .t1 span{
+    /*border: 1px solid #7E512A;*/
+    font-size: 10px;
+}
+/*其他课时样式止*/
+.kcbj{
+    width: 1100px;
+    height: 260px;
+    margin: 0 auto;
+    /*border: 1px solid #AEAEAE;*/
+    /*多出一点距离*/
+    margin-top: 20px;
+}
+
+.kcbj_left{
+    margin-left: 45px;
+    float: left;
+    background-color: white;
+    width: 493px;
+    height: 250px;
+    border: 1px solid #AEAEAE;
+}
+
+.zz{
+    width: 492px;
+    height: 40px;
+    background-color: #EEEEEE;
+    line-height: 40px;
+    padding-left: 10px;
+    border-bottom: 1px solid #AEAEAE;
+}
+.zzs{
+    width: 490px;
+    height: 40px;
+    background-color: #EEEEEE;
+    line-height: 40px;
+    padding-left: 10px;
+    border-bottom: 1px solid #AEAEAE;
+}
+.zz p{
+    font-size: 20px;
+}
+
+.contents{
+    width: 460px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.contents p{
+    font-size: 12px;
+    line-height: 20px;
+}
+.kcbj_right{
+    margin-left: 26px;
+    float: left;
+    background-color: white;
+    width: 492px;
+    height: 250px;
+    border: 1px solid #AEAEAE;
+}
+/*底部css*/
+.login-footer{
+    width: 100%;
+    background-color: white;
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #C1C1C1;
+}
+span{
+    font-size: 10px;
+    font-family: 微软雅黑;
+}
+.one{
+    font-size: 16px;
+}
+/*================*/
+.vid-wrapper{
+    width:100%;
+    position:relative;
+    padding-bottom:56.25%;    /*需要用padding来维持16:9比例,也就是9除以16*/
+    height: 0;
+}
+.vid-wrapper video{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+/*图片轮滑*/
+body{
+    background-color: #333;
+}
+.slider{
+    width:900px;
+    margin: 0 auto;
+
+}
+.slider p{
+    width: 180px;
+    text-align: center;
+}
+.slider div img{
+    padding-left: 14px;
+    padding-right: 14px;
+    height: 100px;
+    width: 150px;
+}
+.slick-slide{
+    height: 200px;
+}
+/*layer自定义弹窗颜色*/
+body .demo-class .layui-layer-title{background:#267A4A; color:#fff; border: none;}
+
+/*下拉菜单*/
+header .top_nav .top_right ul .hides_left{
+    border-left: 1px solid #EBEBEB;
+    /*下拉菜单=========*/
+    position: relative;
+    height: 30px;
+}
+header .hides_left:hover .tuichu{
+    display: block;
+}
+header .hides_left .tuichu{
+    position: absolute;
+    top: 28px;
+    left: -26px;
+    width: 80px;
+    padding: 0 6px;
+
+    background-color: #EBEBEB;
+    display: none;
+
+}
+header .hides_left .tuichu span{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    text-align: center;
+    padding-right: 6px;
+    font-size: 12px;
+}
+.sy{
+    color: #2CA368;
+    text-decoration: none;
+}
+
+.shoucan {
+    /*background-image: url("../images/shoucan.png");*/
+    /*background-position: -2px -29px;*/
+    cursor: pointer;
+    height: 20px;
+    width: 50px;
+    float: right;
+}
+.study{
+    margin-top: -15px;
+    float: right;
+    width: 70px;
+    height:30px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #2CA368;
+}
+.studys{
+    margin-top: 5px;
+    float: right;
+    width: 70px;
+    height:30px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #2CA368;
+}
+.scc{
+    color: #999999;
+    /*font-size: 30px;*/
+}
+.ysc{
+    color: red;
+    /*font-size: 30px;*/
+}

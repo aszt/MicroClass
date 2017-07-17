@@ -1,0 +1,45 @@
+.Info{
+    width: 80%;
+    height:80%;
+    margin-top: 2%;
+    padding-left: 20px;
+}
+table{
+    /*border: 1px solid #5bc0de;*/
+    font-size: 12px;
+    font-family: 微软雅黑;
+    font-size: 15px;
+
+}
+table .l{
+    text-align: right;
+}
+table tr{
+    line-height: 30px;
+}
+.btts{
+    margin-left: 150px;
+}
+.cc{
+    width: 80px;
+    height:30px;
+    border-radius: 30px;
+    border: 0px;
+    background-color: #2CA368;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+#z1,#z2{
+    color: white;
+    text-decoration: none;
+}
+table tr td{
+    font-family: 微软雅黑;
+    /*color: #2CA368;*/
+}
+input{
+    border: 1px solid #2CA368;
+    height: 30px;
+    border-radius: 5px;
+}

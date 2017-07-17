@@ -1,0 +1,32 @@
+<plugin name='jms' version='1.3' grailsVersion='1.2.0 &gt; *'>
+  <author>Grails Plugin Collective</author>
+  <authorEmail>grails.plugin.collective@gmail.com</authorEmail>
+  <title>JMS integration for Grails</title>
+  <description>This plugin makes it easy to integrate your Grails applications with JMS message brokers. Send messages simply and easily through @send@ methods that are available from any artifact. And register services as listeners. It supports both queues and topics, as well as selectors.</description>
+  <documentation>http://gpc.github.io/grails-jms/</documentation>
+  <type>JmsGrailsPlugin</type>
+  <resources>
+    <resource>spring.resources</resource>
+    <resource>grails.plugin.jms.JmsService</resource>
+    <resource>DefaultJmsBeans</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies>
+    <test>
+      <dependency group='org.spockframework' name='spock-grails-support' version='0.7-groovy-2.0' />
+      <dependency group='org.apache.activemq' name='activeio-core' version='3.1.3' />
+      <dependency group='org.apache.xbean' name='xbean-spring' version='3.9' />
+      <dependency group='org.apache.activemq' name='activemq-core' version='5.5.1' />
+    </test>
+    <compile>
+      <dependency group='org.apache.geronimo.specs' name='geronimo-jms_1.1_spec' version='1.1.1' />
+      <dependency group='org.springframework' name='spring-jms' version='3.1.4.RELEASE' />
+    </compile>
+  </dependencies>
+  <plugins />
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>

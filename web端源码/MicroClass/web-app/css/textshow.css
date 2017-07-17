@@ -1,0 +1,30 @@
+body{ width:100%; background:#F6FAFD;}
+.clear{ clear:both;}
+nav ul li a{ color:#fff;}
+.content{ width:1200px; margin:0 auto; height:800px; margin-top:15px;}
+.text-title{ width:1200px; margin:0 auto; margin-top:20px;}
+i.ic{ height: 19px;margin-right:5px;vertical-align: 1px;width: 19px; display:block;float:left; margin-top:10px;}
+i.icw{ background:url(../images/pkg_wkcommon_base_z_6571246.png); background-position:-191px -990px; }
+i.folder{ background:url(../images/listIcon_ca26f6a.png) no-repeat scroll 0 -30px;}
+i.fileicon-pic{ background:url(../images/listIcon_82b617a.png) no-repeat scroll 0 0;}
+i.fileicon-text{ background:url(../images/listIcon_82b617a.png) no-repeat scroll -120px 0;}
+i.fileicon-pdf{ background:url(../images/listIcon_82b617a.png) no-repeat scroll -30px 0;}
+i.fileicon-word{ background:url(../images/listIcon_82b617a.png) no-repeat scroll -60px 0;}
+i.fileicon-xls{ background:url(../images/listIcon_82b617a.png) no-repeat scroll -90px 0;}
+i.fileicon-ppt{ background:url(../images/listIcon_82b617a.png) no-repeat scroll -150px 0;}
+i.fileicon-music{ background:url(../images/listIcon_82b617a.png) no-repeat scroll -180px 0;}
+i.fileicon-video{ background:url(../images/listIcon_82b617a.png) no-repeat scroll -210px 0;}
+i.fileicon-yasuo{ background:url(../images/listIcon_82b617a.png) no-repeat scroll -240px 0;}
+i.fileicon-bt{ background:url(../images/listIcon_82b617a.png) no-repeat scroll -270px 0;}
+i.share-ico{ background:url(../images/Share_16px_1180718_easyicon.net.ico) no-repeat 0 3px}
+i.fileicon-other{ background:url(../images/listIcon_ca26f6a.png) no-repeat scroll 0 0;}
+
+.text-title .text-h{ font-size:22px; font-weight:400; height:36px; line-height:36px;}
+.text-title .text-xinxi{ font-size:14px; color:#666; display:block; margin-top:5px; padding-left:20px;}
+
+.content .leftwd-bar{ width:954px; float:left; height:800px; background:#3F3F3F;}
+.content .rightwd-bar{ width:235px;float:left; padding-left:10px;z-index: 100; border-left:none;border: 1px solid #666; margin-left: 10px;  height: 800px;}
+.rightwd-bar .widthnum{ width: 210px;overflow:hidden; white-space:nowrap;  text-overflow:ellipsis;}
+.tuijian-title{ font-size:16px; font-weight:600; line-height:36px;}
+.tuijian-name{ font-size:14px; line-height:36px; cursor:pointer;}
+.xianguandu{ font-size:12px; color:#666;width:50px;}

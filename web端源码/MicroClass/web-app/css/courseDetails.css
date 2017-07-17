@@ -1,0 +1,355 @@
+*{
+    margin:0;
+    padding:0;
+}
+.clear{ clear:both}
+header a:link{ color: #999; text-decoration: none;}
+header a:visited{ color: #999; text-decoration: none;}
+header a:hover{ color: #2E9057; text-decoration: none;}
+.top_nav {
+    width: 100%;
+    height: 38px;
+    background: #EBEBEB;
+    border-bottom: 1px solid #ddd;
+}
+.top_container{
+    width: 1180px;
+    margin: 0 auto;
+}
+header .top_nav .top_container ul li{
+    list-style: none;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+    padding:  0 6px;
+    font-family: "宋体";
+}
+header .top_nav .top_right{
+    float: right;
+    margin-right: -6px;
+}
+header .top_nav .top_right p{
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+    color: #666;
+    font-family: "宋体";
+    float: left;
+}
+header .top_nav .top_right ul{
+    float: right;
+}
+header .top_nav .top_right ul li{
+    border-left: 1px solid #d9d9d9;
+    height: 15px;
+    line-height: 15px;
+    margin-top: 10px;
+}
+header .top_nav .top_right ul a:link{ color: #666; text-decoration: none;}
+header .top_nav .top_right ul a:visited{ color: #666; text-decoration: none;}
+header .top_nav .top_right ul a:hover{ color: #2E9057; text-decoration: none;}
+header .top_nav .top_right ul .hides_left{
+    border-left: 1px solid #EBEBEB;
+}
+/*导航样式*/
+header .dh{
+    width: 100%;
+    height: 60px;
+    background-color: #F5F5F5;
+}
+header .nr{
+    font-family: 微软雅黑;
+    line-height: 55px;
+    width: 1180px;
+    margin: 0 auto;
+    padding-left: 160px;
+}
+header .nr .size{
+    font-size: 15px;
+}
+.bgp{
+    width: 100%;
+    height: 350px;
+    background-image: url("../images/playstage.jpg");
+    /*不加边框离顶部有距离*/
+    /*border: 1px solid #000000;*/
+    padding-top: 20px;
+
+}
+.zt{
+    background: #f4f4f4 none repeat scroll 0 0;
+    margin: 0 auto;
+    width: 950px;
+    height: 320px;
+    border-bottom: 2px solid #399466;
+
+}
+.zuo{
+    float: left;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+.you{
+    float: left;
+    width: 520px;
+    padding-top: 15px;
+    padding-left: 15px;
+
+}
+.you h2{
+    font-family: 微软雅黑;
+    font-weight: 400;
+    font-size: 28px;
+}
+.you p{
+    font-size: 10px;
+    line-height: 20px;
+}
+.shoucan{
+    background-position: -2px -29px;
+    cursor: pointer;
+    float: left;
+    height: 20px;
+    margin-left: -10px;
+    width: 55px;
+    /*background-image: url("../images/shoucan.png");*/
+    margin-left: 20px;
+    margin-top: 25px;
+}
+.study{
+    float: right;
+    width: 150px;
+    height:50px;
+    border-radius: 30px;
+    border: 0px;
+    background-color: #2CA368;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+#col{
+    font-size: 20px;
+    color: white;
+}
+.study a:hover{
+    color: white;
+}
+/*头部结束*/
+body{
+    background-color: #F5F5F5;
+}
+.contents{
+    width: 100%;
+    /*height: 900px;*/
+    /*background-color: #F5F5F5;*/
+}
+.bgnr{
+    width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    /*background-color: #F5F5F5;*/
+}
+.bgnr table tr{
+    font-size: 14px;
+}
+.contents table{
+    /*border: 1px solid #5bc0de;*/
+    width:1000px;
+    height: 250px;
+    padding-left: 40px;
+    padding-top: 30px;
+    font-size: 12px;
+    font-family: 微软雅黑;
+}
+.kcjs{
+    margin-top: 20px;
+    height: 300px;
+    /*border: 1px solid #2a6496;*/
+    border-top: 1px solid #2CA368;
+}
+.bt{
+    margin-left: 40px;
+    font-size: 26px;
+    margin-top: 12px;
+}
+.nr{
+    margin-left: 40px;
+    font-size: 12px;
+    margin-top: 12px;
+    line-height: 30px;
+}
+.gd{
+     float: right;
+     width: 60px;
+     height:30px;
+     border-radius: 10px;
+     border: 0px;
+     background-color: #2CA368;
+     margin-top: -30px;
+     margin-right: 360px;
+ }
+#tt{
+    color: white;
+    text-decoration: none;
+}
+.study a:hover{
+    color: white;
+}
+.dg{
+    width: 1000px;
+    height: 200px;
+    /*border: 1px solid #2a6496;*/
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.t1{
+    float: left;
+    width: 150px;
+    height: 150px;
+    /*border: 1px solid #2a6496;*/
+}
+span{
+    font-size: 12px;
+    margin: 0 30px
+}
+.captain{
+    width: 1000px;
+    height: 600px;
+    /*border-top: 1px solid #2CA368;*/
+    /*margin-left: 40px;*/
+    /*border-top: 1px solid #2CA368;*/
+    /*border-bottom: 1px solid #2CA368;*/
+    border: 1px solid #2CA368;
+}
+/*课时介绍*/
+.unit{
+    float: left;
+    /*border: 1px solid #2CA368;*/
+    width: 400px;
+}
+.unit p{
+    margin-left: 40px;
+    font-size: 26px;
+    margin-top: 12px;
+    margin-bottom: 25px;
+}
+ul li{
+    list-style: decimal-leading-zero;
+    /*list-style-position:inside;*/
+    line-height: 40px;
+    font-size: 14px;
+    padding:  0 6px;
+    /*margin-left: 40px;*/
+}
+.yd{
+    margin-left: 70px;
+}
+.unit a{
+    text-decoration: none;
+    color: #2a6496;
+}
+.unit a:hover{
+    color: #2CA368;
+}
+/*左边内容*/
+.fing{
+    margin-top: 12px;
+    float: right;
+    width: 360px;
+    height: 580px;
+    /*border: 1px solid #e8e8e8;*/
+}
+.bts{
+
+    font-size: 20px;
+}
+.getx{
+    /*头像控制*/
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    text-align: center;
+    /*border: 1px solid #ac2925;*/
+    float: left;
+}
+.grjj{
+    line-height: 20px;
+    font-size: 12px;
+}
+.grjj > p{
+    margin-left: 25px;
+}
+.q1,.q2{
+    float: left;
+    width: 80px;
+    height:30px;
+    border-radius: 30px;
+    border: 0px;
+    background-color: #2CA368;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+#q,#w{
+    color: white;
+    text-decoration: none;
+}
+/*底部css*/
+.login-footer{
+    /*position:fixed;*/
+    /*bottom:0;*/
+    /*固定在页面底部*/
+    width: 100%;
+    background-color: white;
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #C1C1C1;
+}
+span{
+    font-size: 10px;
+    font-family: 微软雅黑;
+}
+.one{
+    font-size: 16px;
+}
+/*layer自定义弹窗颜色*/
+body .demo-class .layui-layer-title{background:#267A4A; color:#fff; border: none;}
+
+/*下拉菜单*/
+header .top_nav .top_right ul .hides_left{
+    border-left: 1px solid #EBEBEB;
+    /*下拉菜单=========*/
+    position: relative;
+    height: 30px;
+}
+header .hides_left:hover .tuichu{
+    display: block;
+}
+header .hides_left .tuichu{
+    position: absolute;
+    top: 28px;
+    left: -26px;
+    width: 80px;
+    padding: 0 6px;
+
+    background-color: #EBEBEB;
+    display: none;
+
+}
+header .hides_left .tuichu span{
+    margin-left: 0px;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    text-align: center;
+    padding-right: 6px;
+    font-size: 12px;
+}
+.sc{
+    font-size: 30px;
+}
+.ysc{
+    color: red;
+    font-size: 30px;
+}

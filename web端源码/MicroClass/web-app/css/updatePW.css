@@ -1,0 +1,34 @@
+/*layer自定义弹窗颜色*/
+.wai{
+    width: 100%;
+}
+.nei{
+    /*border: 1px solid #2CA368;*/
+    width: 500px;
+    margin: 0 auto;
+}
+.biaoDan{
+    /*border: 1px solid #2CA368;*/
+    width: 300px;
+    margin: 30px auto;
+}
+.em{
+    width:300px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    margin-bottom: 17px;
+    padding-left:5px;
+    margin-top: 15px;
+}
+.sb{
+    margin-top: 20px;
+    height:43px;
+    width:300px;
+    background-color: #6F9E83;
+    color: white;
+    border: 0px;font-size: 22px;
+    margin-bottom: 17px;
+    /*边角圆滑一点*/
+    border-radius: 4px;
+}
